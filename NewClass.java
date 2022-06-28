@@ -1,14 +1,6 @@
 
 import java.util.Scanner;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-/**
- *
- * @author SAM
- */
 public class NewClass {
 
     public static int[][] inputMatrix(int nr, int nc) {
@@ -47,29 +39,29 @@ public class NewClass {
         }
         return matrix;
     }
-    public static int[][] makePivotColZero(int[][] matrix, int pivotRow, int pivotColumn){
-        
+
+    public static int[][] makePivotColZero(int[][] matrix, int pivotRow, int pivotColumn, int pivotValue) {
+
         int nr = matrix.length;
         int nc = matrix.length;
         for (int r = 0; r < nr; r++) {
-                if (r == pivotRow) {
-                    continue;
-                }
-                if (r != pivotRow) {
-                     pivotValue = matrix[r][pivotColumn];
-                }
-                for (int i = 0; i < nc; i++) {
-                    matrix[r][i] = matrix[r][i] - matrix[pivotRow][i] * pivotValue;
-                }
-        
-    return matrix;
+            if (r == pivotRow) {
+                continue;
+            }
+            if (r != pivotRow) {
+                pivotValue = matrix[r][pivotColumn];
+            }
+            for (int i = 0; i < nc; i++) {
+                matrix[r][i] = matrix[r][i] - matrix[pivotRow][i] * pivotValue;
+            }
+
+        }
+        return matrix;
     }
-    
 
     public static void main(String[] args) {
         int[][] abc_matrix = NewClass.inputMatrix(2, 2);
         NewClass.displayMatrix(2, 2, abc_matrix);
         // Display matrix 			
-
     }
 }
